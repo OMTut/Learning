@@ -1,0 +1,12 @@
+//takes a Map<String, String> and checks if the keys point to all unique values
+public boolean isUnique(Map<String,String>startingMap) {
+    //create a Set for keys (Sets do not allow duplicates)
+    Set<String> keyCount = startingMap.keySet();
+    int keySize = keyCount.size();
+    
+    //create a Set for values
+    Set<String> valueSet = new HashSet<String> (startingMap.values());
+    int valueSize = valueSet.size();
+    
+    return (keySize == valueSize);
+}
