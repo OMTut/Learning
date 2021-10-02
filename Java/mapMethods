@@ -29,3 +29,39 @@ public Map<String, Integer> intersect(Map<String, Integer> mapA, Map<String, Int
     
     return result;
 }
+
+/*
+*  Method that accepts a list of integers, and returns the number of times the an integer occurrs the most
+*  checks to see if the list is empty. if it is, returns 0
+*  creates a storage hashMap
+*  loops through the List and builds the map.
+*  loops through the values of the map. comparing them to a max variable.
+*/
+public int maxOccurrences (List<Integer> data) {
+    
+    if (data.size() == 0) {
+        return 0;
+    }
+    
+    Map<Integer, Integer> intMap = new HashMap<>();
+    
+    
+    for (int i = 0; i < data.size(); i++) {
+        if (intMap.containsKey(data.get(i))) {
+            int counter = intMap.get(data.get(i)) + 1;
+            intMap.replace(data.get(i),counter);
+        } else {
+            intMap.put(data.get(i),1);
+        }
+    }
+            
+    //check map for maxOccurrence
+    int max = 0;
+    Collection<Integer> occurences = intMap.values();
+    for (int n : occurences) {
+         if (n > max) {
+             max = n;
+         }
+    }
+    return max;
+}
