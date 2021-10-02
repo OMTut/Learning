@@ -10,3 +10,22 @@ public boolean isUnique(Map<String,String>startingMap) {
     
     return (keySize == valueSize);
 }
+
+/*
+*  This takes two Maps and find their intersection.
+*  1. Checks to see if MapB contains the key from Map A
+*  2. if it does, it compares the values of MapB key to MapA key
+*  3. If they're equal, it puts it into result map and returs
+*/
+public Map<String, Integer> intersect(Map<String, Integer> mapA, Map<String, Integer> mapB) {
+    
+    Map<String, Integer> result = new HashMap<>();
+    
+    for (String x : mapA.keySet()) {
+        if ((mapB.containsKey(x)) && (mapA.get(x).equals(mapB.get(x)))) {
+            result.put(x,mapA.get(x));
+        }
+    }
+    
+    return result;
+}
